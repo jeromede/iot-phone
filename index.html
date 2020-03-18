@@ -1,0 +1,62 @@
+<!--
+	Copyright (c) 2019,2020 Jérôme Desquilbet <jeromede@fr.ibm.com>
+
+	Permission to use, copy, modify, and distribute this software for any
+	purpose with or without fee is hereby granted, provided that the above
+	copyright notice and this permission notice appear in all copies.
+
+	THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+	WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+	MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+	ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+	WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+	ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+	OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<style>
+	html {
+		font-family:sans-serif;
+		font-size:100%;
+		font-weight:normal;
+	}
+	body {margin:1cm;}
+</style>
+<title>IoT Device (Test in browser)</title>
+</head>
+<body>
+<h1>IoT Device "<span id="device">?</span>"</h1>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Orientation_and_motion_data_explained"><img src="img/axis.png"></a></p>
+<p>Acceleration:</p>
+<ul>
+<li>x = <span id="x">?</span> m/s²</li>
+<li>y = <span id="y">?</span> m/s²</li>
+<li>z = <span id="z">?</span> m/s²</li>
+</ul>
+<p>Orientation:</p>
+<ul>
+<li>x = <span id="beta">?</span>°</li>
+<li>y = <span id="gamma">?</span>°</li>
+<li>z = <span id="alpha">?</span>°</li>
+</ul>
+<p id="log">?</p>
+<script
+	title="Initialize IoT Platform configuration"
+	src="js/config_dev.js">
+</script>
+<script
+	title="IBMIoTF from https://github.com/ibm-watson-iot/iot-nodejs (with a small bug fixed)"
+	src="lib/iotf-client-bundle.js">
+</script>
+</script>
+<script
+	title="Main program"
+	src="js/main_dev.js">
+</script>
+</body>
+</html>
+
