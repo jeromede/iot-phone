@@ -28,16 +28,14 @@ function throttle(fun, interval) {
 // ---------------------------------------------------------------------------
 
 function errorFun(err) {
-	trace('*** Error: ' + err);
 	client.disconnect();
 	document.body.style.backgroundColor = "blue";
-	trace('*** Disconnected after error');
+	trace('*** Disconnected after error (' + err + ')');
 }
 function timeoutFun() {
-	trace('--- About to disconnect');
 	client.disconnect();
 	document.body.style.backgroundColor = "lightblue";
-	trace('--- Disconnected');
+	trace('--- Disconnected after time is out');
 }
 function commandFun(command, format, payload) {
 	trace('%%% Device command '+command);
@@ -84,6 +82,8 @@ function deviceorientationFun(event) {
 	);
 }
 function connectFun() {
+	document.body.style.backgroundColor = "white";
+	trace('--- OK: Connected');
 	if (window.DeviceMotionEvent) {
     	window.addEventListener(
 			'devicemotion',
@@ -108,8 +108,10 @@ function connectFun() {
 
 // ---------------------------------------------------------------------------
 
+document.body.style.backgroundColor = "lightblue";
 trace('--- Hello!');
-var config = {
+trace('--- Disconnected');
+let config = {
 	"org" : org_id,
 	"id" : device_id,
 	"domain": domain,
@@ -118,16 +120,14 @@ var config = {
 	"auth-token" : dev_auth_token
 };
 trace('--- About to create client');
-var client = new IBMIoTF.IotfDevice(config);
+let client = new IBMIoTF.IotfDevice(config);
 trace('--- Client created');
 client.log.setLevel('trace');
 client.on('error', errorFun);
 setTimeout(timeoutFun, disconnect_after*1000);
 client.on('command', commandFun);
 client.on('connect', connectFun);
-trace('--- About to connect');
+trace('!!! Check your configuration');
 document.getElementById("device").textContent = device_id;
 client.connect();
-document.body.style.backgroundColor = "white";
-trace('--- Connected');
 
