@@ -54,9 +54,9 @@ function commandFun(command, format, payload) {
     }
 }
 function devicemotionFun(event) {
-	x = event.acceleration.x;
-	y = event.acceleration.y;
-	z = event.acceleration.z;
+	const x = event.acceleration.x;
+	const y = event.acceleration.y;
+	const z = event.acceleration.z;
 	document.getElementById("x").textContent = x;
 	document.getElementById("y").textContent = y;
 	document.getElementById("z").textContent = z;
@@ -69,9 +69,9 @@ function devicemotionFun(event) {
 	);
 }
 function deviceorientationFun(event) {
-	rotateDegrees = event.alpha; // rotation around z-axis
-	leftToRight = event.gamma; // left to right around y-axis
-	frontToBack = event.beta; // front back motion around x-axis
+	const rotateDegrees = event.alpha; // rotation around z-axis
+	const leftToRight = event.gamma; // left to right around y-axis
+	const frontToBack = event.beta; // front back motion around x-axis
 	document.getElementById("alpha").textContent = rotateDegrees;
 	document.getElementById("beta").textContent = frontToBack;
 	document.getElementById("gamma").textContent = leftToRight;
