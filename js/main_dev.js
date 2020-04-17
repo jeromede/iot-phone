@@ -84,8 +84,26 @@ function deviceorientationFun(event) {
 	);
 }
 function connectFun() {
-    window.addEventListener('devicemotion', throttle(devicemotionFun, throttleInterval), true);
-    window.addEventListener('deviceorientation', throttle(deviceorientationFun, throttleInterval), true);
+	if (window.DeviceMotionEvent) {
+    	window.addEventListener(
+			'devicemotion',
+			throttle(devicemotionFun, throttleInterval),
+			true
+		);
+	} else {
+		document.getElementById("acceleration_title").textContent =
+			"Acceleration not supported by this phone+browser combination";
+	}
+	if (window.DeviceOrientationEvent) {
+   		window.addEventListener(
+			'deviceorientation',
+			throttle(deviceorientationFun, throttleInterval),
+			true
+		);
+	} else {
+		document.getElementById("orientation_title").textContent =
+			"Orientation not supported by this phone+browser combination";
+	}
 }
 
 // ---------------------------------------------------------------------------

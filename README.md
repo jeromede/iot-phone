@@ -3,9 +3,11 @@ Device simulation in a mobile browser
 
 Will detect acceleration along and rotation around the x, y, z axis.
 
-See specification documents at <https://w3c.github.io/deviceorientation> and <https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent>
+See specification documents at <https://w3c.github.io/deviceorientation> and <https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent>.
 
 ![Axis](img/axis.png)
+
+Warning: not all combinations of phones and navigators can send acceleration and orientation events; check [compatibity here](https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent#Browser_compatibility).
 
 Configuration:
 
